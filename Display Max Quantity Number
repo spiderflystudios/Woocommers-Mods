@@ -1,0 +1,6 @@
+// display max quantity allowed if set on single product page
+add_action('woocommerce_single_product_summary', 'maxquantityallowed', 30);
+function maxquantityallowed() {
+if(get_post_meta( get_the_ID(), 'maximum_allowed_quantity', true ) ){
+    echo 'Maximum quantity allowed for this product is <strong>'. get_post_meta( get_the_ID(), 'maximum_allowed_quantity', true ) .'</strong>.  Request a custom quote for bulk orders.'; }
+}
